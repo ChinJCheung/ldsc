@@ -19,7 +19,7 @@ import os
 import glob
 
 
-_N_CHR = 22
+_N_CHR = 18
 # complementary bases
 COMPLEMENT = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}
 # bases
@@ -141,13 +141,13 @@ def _read_w_ld(args, log):
 
 
 def _read_chr_split_files(chr_arg, not_chr_arg, log, noun, parsefunc, **kwargs):
-    '''Read files split across 22 chromosomes (annot, ref_ld, w_ld).'''
+    '''Read files split across 18 chromosomes (annot, ref_ld, w_ld).'''
     try:
         if not_chr_arg:
             log.log('Reading {N} from {F} ... ({p})'.format(N=noun, F=not_chr_arg, p=parsefunc.__name__))
             out = parsefunc(_splitp(not_chr_arg), **kwargs)
         elif chr_arg:
-            f = ps.sub_chr(chr_arg, '[1-22]')
+            f = ps.sub_chr(chr_arg, '[1-18]')
             log.log('Reading {N} from {F} ... ({p})'.format(N=noun, F=f, p=parsefunc.__name__))
             out = parsefunc(_splitp(chr_arg), _N_CHR, **kwargs)
     except ValueError as e:
