@@ -12,6 +12,7 @@ from scipy.stats import chi2
 from ldscore import sumstats
 from ldsc import MASTHEAD, Logger, sec_to_str
 import time
+np.seterr(invalid='ignore')
 
 try:
     x = pd.DataFrame({'A': [1, 2, 3]})
